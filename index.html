@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.1.0/build/pure-min.css" integrity="sha384-yHIFVG6ClnONEA5yB5DJXfW2/KC173DIQrYoZMEtBvGzmf0PKiGyNEqe9N6BNDBH" crossorigin="anonymous">
+    <style>
+        body{
+            margin-left: 20%;
+            margin-right: 20%;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <form name="formMedia" class="pure-form pure-form-stacked">
+        <fieldset>
+            <legend>Notas Web I</legend>
+            <label for="iNome">Nome</label>
+            <input id="iNome" type="text" name="nome" placeholder="Nome" required>
+            <label for="iAv1">AV1</label>
+            <input type="number" name="nota1" placeholder="Digite sua 1°nota" id="iAv1" step="0.1">
+            <label for="iAv2">AV2</label>
+            <input type="number" name="nota2" placeholder="Digite sua 2°nota" id="iAv2" step="0.1">
+            <label for="iAv3">AV3</label>
+            <input type="number" name="nota3" placeholder="Digite sua 3°nota" id="iAv3" step="0.1">
+            <label for="iAv4">AV4</label>
+            <input type="number" name="nota4" placeholder="Digite sua 4°nota" id="iAv4" step="0.1">
+            <input type="button" class="pure-button pure-button-primary" onclick="calc()" value="Calcular">
+        </fieldset>
+    </form>
+    <h2 id="resultado"></h2>
+    <script>
+        function calc(){
+            var n1, n2, media, nome;
+
+            nome = document.getElementById("iNome").value;
+
+            n1 = formMedia.nota1.value;
+            n2 = formMedia.nota2.value;
+            n3 = formMedia.nota3.value;
+            n4 = formMedia.nota4.value;
+            n1 = parseFloat(n1);
+            n2 = parseFloat(n2);
+            n3 = parseFloat(n3);
+            n4 = parseFloat(n4);
+
+            media = (n1 + n2 + n3 + n4) / 4;
+            console.log(media);
+
+            if(media >= 6){
+                document.getElementById("resultado").innerHTML =  "aprovado";
+            }else if(media < 6 && media >= 3){
+                document.getElementById("resultado").innerHTML =  "de recuperação";
+            }else{
+                document.getElementById("resultado").innerHTML =  "reprovado";
+            }
+
+            var result = document.getElementById("resultado");
+            console.log(result);
+            result.textContent = nome + " sua média é: " + media + " e você está " + result.textContent;
+        }
+    </script>
+</body>
+</html>
